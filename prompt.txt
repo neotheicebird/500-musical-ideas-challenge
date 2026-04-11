@@ -1,0 +1,21 @@
+Let's work with strudel, generate the following:
+
+1. Add a function that can play a chord progression, the function signature must take the progression as string, and an instrument name optionally, defaulting to "piano". User should be able to Call this function to play the progression. lets call it "playseq" for now, you can come up with a better name if you find it. Add room, delay and roomsize params.
+
+2. Make another function which will add "color tones". User provides simple chords and the function adds extra notes into the basic chords to add extra dimension. I understand that there are many ways to color a basic chord, find out the most pleasing music theory based approach. Some examples would be "C -> Cadd9", "Am -> Am7", "F -> Fadd9", "G -> Gsus2". Added context: I want these functions to work like voicing() and anchor() which automates note selections and comes up with a set of notes for a chord
+
+3. We need a way to add "Passing Chords" to a progression, given a basic chord sequence, the function should insert passing chords between two chords in the original sequence. For example "C Am" becomes "C G/B Am" where G/B is the passing chord. You need to compute the right passing chord based on a pair of input chords based on music theory.
+
+4. We need a function to insert secondary dominant (secdom) chords in a progression. Secondary dominant chords are the dominant (5th or rather denoted as V chord) of the chord we are moving towards. For example if the progression is "C Am" we find the dominant of Am which is E7 and insert it in between, so the progression becomes "C E7 Am". Make a function that adds secondary dominants.
+
+5. Last function is 2-5-1's. This function will add 2 chords between a pair of chords in a given progression. For example, "C Am" becomes "C Bm7 E7 Am" where Bm7 is the 2 (II Chord) of Am and E7 is the 5th (V chord) of Am.
+
+Here are some things to keep in mind when you implement:
+
+1. Whenever you insert chords between a pair the total duration must remain the same. For example "C Am"originally would have taken 1 cycle for C and 1 for Am, now if E7 is inserted then C (0.75) E7 (0.25) and then Am is played or something like that, you can assume a default timing for the inserted chords and let user optionally pass time length for the inserted chord. The key is that the total duration the chord progression is played remains the same, these insertions are transition chords and are generally played shorter than the primary chords in the progression.
+
+2. Make sure these functions are chainable. For example, I must be able to call passing chords with a progression string, chain it with playseq to play. We can assume that users won't use 2-5-1's, secdom and passing chords together. They will generally process a basic progession with one of these 3 functions, so we need not complicate trying to make them work with each other.
+
+3. Make a single strudel file in which these functions will be written and a bunch of arrangements with sequence "C Am F G" as basic chord progression is used to showcase the implementation. Make sure you use pianoroll/punchcard in the examples. If possible export a sheetnotation to help understand what happens to the given progression.
+
+Thanks. Get started, all the best.
