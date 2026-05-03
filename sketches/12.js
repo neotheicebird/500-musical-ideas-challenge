@@ -25,13 +25,13 @@ $bassline: n("0 - 1 -")
   .s("triangle")
   .lpf(500);
 // arp-ing a chord to create counterpt even though the main structure is homophonic, but no chord is played
-// $counterpt: chords.voicing().arp("0 1 2 1 2 3 2 [1 2 1]").s("supersaw").lpf(800).room(0.375)
+// $counterpt: chords.voicing().arp("0 1 2 1 2 3 2 [1 2 2 1]").s("supersaw").lpf(800).room(0.375)
 // $counterpt: chords.voicing().arp("2 1 0 3 2 1 2 [2 1 2]").s("supersaw").lpf(800).room(0.375)
 $counterpt: chords
   .voicing()
-  .arp("3 2 1 4 3 2 3 [2 1 0]")
+  .arp("3 2 1 4 3 2 3 [2 1 2]")
   .s("supersaw")
   .orbit(4)
   .lpf(800)
   .room(0.375)
-  .gain(0.75);
+  .gain(0.8);
